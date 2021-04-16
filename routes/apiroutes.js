@@ -2,7 +2,6 @@ const router = require("express").Router();
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 
-// gets all notes at /notes
 router.get("/notes", (req, res) => {
   fs.readFile("./db/db.json", "utf-8", (err, data) => {
     if (err) throw err;
@@ -37,8 +36,5 @@ router.delete("/notes/:id", (req, res) => {
         })
     })
 })
-
-// router.delete("/api/notes/:id")
-// 3rd route to delete which takes an id as a route param
 
 module.exports = router;
