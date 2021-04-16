@@ -25,10 +25,15 @@ app.get("/api/notes", (req, res) => {
 });
 
 // post notes, same url
-app.post("/notes", (req, res) => {
+// read file, creat array, push to 
+app.post("/api/notes", (req, res) => {
     const newNote = req.body;
-
-    notes.push(newNote);
+    // newNote.id = uniqid();
+    fs.appendFileSync("./db/db.json", JSON.stringify(newNote), (err) => {
+        if (err) throw err;
+        
+        
+    })
 })
 
 app.delete("/api/notes/:id")
