@@ -24,6 +24,19 @@ router.post("/notes", (req, res) => {
   });
 });
 
+router.delete("/notes/:id", (req, res) => {
+    fs.readFile("./db/db.json", "utf-8", (err, data) => {
+        if (err) throw err;
+        const notesArray = JSON.parse(data);
+        const noteId = req.params.id;
+        const newNoteArray = notesArray.filter((note) => note.id !== noteId);
+
+        fs.writeFileSync("db/db.json", JSON.stringify(newNoteArray), (err) => {
+            if (err) throw err;
+            res.sendStatus(200);
+        })
+    })
+})
 
 // router.delete("/api/notes/:id")
 // 3rd route to delete which takes an id as a route param
