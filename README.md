@@ -5,4 +5,4 @@ This is the finalized version of my express note taker. The user will be present
 # Deployed App
 Here is the link to the deployed app.
 
-[Demo Video](https://warm-ridge-68896.herokuapp.com/)
+[Deployed App](https://warm-ridge-68896.herokuapp.com/)
